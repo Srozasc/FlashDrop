@@ -11,6 +11,12 @@ y este proyecto adhiere a [Versionado Semántico](https://semver.org/lang/es/).
 
 ### ✨ Nuevas Funcionalidades
 
+- **Dark Mode Nativo OLED (Bloque 4)**: Soporte completo para tema oscuro implementado con TDD:
+  - Hook `useTheme`: detecta automáticamente la preferencia del sistema (`light`/`dark`) y expone `{ theme, colors, isDark }`.
+  - Componente `ThemedText`: texto que adapta su color al tema activo sin configuración adicional.
+  - Componente `ThemedView`: contenedor con fondo adaptativo — usa **negro puro `#000000`** en modo oscuro para optimizar el consumo de batería en pantallas OLED.
+  - Soporte para colores personalizados por tema mediante props `lightColor` / `darkColor`.
+
 - **One-Tap Checkout (Bloque 2)**: Implementación de una experiencia de pago ultra-rápida:
   - Selección de direcciones de entrega preexistentes.
   - Gestión y selección de métodos de pago (Tarjetas, Efectivo).
@@ -41,7 +47,16 @@ y este proyecto adhiere a [Versionado Semántico](https://semver.org/lang/es/).
   - Selector de tipos de ubicación con iconos específicos.
   - Persistencia en Supabase mediante actualización de esquema.
 
-- **Pantalla de Inicio Mobile (HomeScreen)**: Se implementó una nueva pantalla de descubrimiento para la app móvil con diseño premium que incluye:
+- **Deduplicación de Datos con React Query (Bloque 5)**: Integración de `@tanstack/react-query` para navegación instantánea:
+  - Hook `useMerchants` con caché inteligente (`staleTime: 5min`, `gcTime: 30min`).
+  - `HomeScreen` sincronizada con datos reales de Supabase.
+  - Resolución de conflictos de versiones forzando React 19 vía `pnpm overrides`.
+
+- **Carga Progresiva de Imágenes (Bloque 5)**: Componente `BlurImage` con efecto fade:
+  - Elimina el parpadeo de imágenes al navegar entre pantallas.
+  - Mejora el LCP (Largest Contentful Paint) percibido.
+
+- **Pantalla de Inicio Mobile (HomeScreen)**: Pantalla de descubrimiento con diseño premium:
   - Buscador con placeholder dinámico ("¿Qué se te antoja hoy?")
   - Selector de ubicación con icono de mapa
   - Sección de **Historias/Ofertas** del día con scroll horizontal
@@ -55,67 +70,103 @@ y este proyecto adhiere a [Versionado Semántico](https://semver.org/lang/es/).
   - Instalación y configuración de `jest-expo`, `@testing-library/react-native`, `jest@29` y `react-test-renderer@19.1.0`
   - Configuración de `jest.config.js` compatible con **pnpm** (resuelto problema de symlinks con `.pnpm/`)
   - Configuración de `babel.config.js` con `babel-preset-expo`
-  - **11 tests unitarios** totales para `HomeScreen`, `Skeleton` y `SmartCartModal` — todos pasando ✅
-
-- **Task List de Mejoras Mobile** (`mobile/task.md`): Se creó una lista de tareas estructurada para el rediseño de la app con 5 bloques de trabajo. Los bloques 1 y 2 están actualmente en progreso/completado parcial.
 
 ### 🐛 Correcciones
 
 - **Error `Property 'name' does not exist on type 'User'` en Dashboard del Comerciante**: El componente `Dashboard.tsx` intentaba acceder a `user.name`, pero el tipo `User` de Supabase Auth no contiene esa propiedad. Se corrigió extrayendo `profile` del hook `useAuth()` y usando `profile?.full_name` con fallback a la primera parte del email.
 - **Ruta de importación en SmartCartModal**: Se corrigió la ruta de `../../constants/Colors` a `../../../constants/Colors`.
+- **"Invalid hook call" en useMerchants**: Resuelto forzando React 19 vía `pnpm.overrides` en `mobile/package.json` para alinear las versiones de React entre dependencias.
 
 ### 🔧 Mejoras Técnicas
 
 - **Resolución de incompatibilidad Jest 30 ↔ jest-expo 54**: Se descubrió mediante análisis profundo (Sequential Thinking + Context7) que `jest@30.2.0` no es compatible con `jest-expo@54.0.17`. Se downgradeó a `jest@29.7.0`.
 - **Refactor de Tests**: Se actualizó el uso de `toContainEqual` por `toMatchObject` en los tests de componentes para mayor robustez ante objetos de estilo aplanados.
+- **Tipo `Merchant` actualizado**: Se añadió el campo `image_url` al tipo y al query de `api.listMerchants` en `supabaseRest.ts`.
 
 ### 📁 Archivos Nuevos
 
 | Archivo | Descripción |
 |---------|-------------|
+| `mobile/src/hooks/useTheme.ts` | Hook centralizado para detección de tema del sistema |
+| `mobile/src/hooks/__tests__/useTheme.test.tsx` | Tests TDD para useTheme (3 casos) |
+| `mobile/src/components/common/ThemedText.tsx` | Texto adaptativo al tema activo |
+| `mobile/src/components/common/ThemedView.tsx` | Contenedor adaptativo con fondo OLED |
+| `mobile/src/components/common/__tests__/ThemedText.test.tsx` | Tests TDD para ThemedText (2 casos) |
+| `mobile/src/components/common/__tests__/ThemedView.test.tsx` | Tests TDD para ThemedView (3 casos) |
+| `mobile/src/hooks/useMerchants.ts` | Hook React Query para obtener comercios con caché |
+| `mobile/src/hooks/__tests__/useMerchants.test.tsx` | Tests para useMerchants |
+| `mobile/src/components/common/BlurImage.tsx` | Imagen con carga progresiva y efecto fade |
 | `mobile/src/screens/OrderDetailScreen.tsx` | Pantalla de seguimiento con Timeline Interactivo |
-| `mobile/src/screens/__tests__/OrderDetailScreen.test.tsx` | Test unitarios para el seguimiento de pedido |
 | `mobile/src/components/profile/GamificationCard.tsx` | Card de fidelización con niveles y puntos |
-| `mobile/src/components/profile/__tests__/GamificationCard.test.tsx` | Test para el sistema de niveles |
 | `mobile/src/components/profile/AddressItem.tsx` | Item de dirección con alias e iconos |
-| `mobile/src/components/profile/__tests__/AddressItem.test.tsx` | Test para la gestión de direcciones |
-| `mobile/src/components/UnifiedMap.native.tsx` | Actualización a Mapa 2.0 con Dark Mode |
-| `mobile/task.md` | Lista de tareas actualizada al Bloque 4 |
+| `mobile/src/components/UnifiedMap.native.tsx` | Mapa 2.0 con Dark Mode |
 
 ### 📝 Archivos Modificados
 
 | Archivo | Cambio |
 |---------|--------|
-| `mobile/src/screens/HomeScreen.tsx` | Integra skeletons, carga simulada y botón de carrito |
-| `mobile/task.md` | Actualizado estado de tareas completadas |
-| `src/pages/merchant/Dashboard.tsx` | Usa `profile.full_name` en vez de `user.name` |
-| `mobile/App.tsx` | Integra `SafeAreaProvider` y `RootNavigator` |
+| `mobile/src/screens/HomeScreen.tsx` | Integra `useMerchants`, `BlurImage` y skeletons de carga |
+| `mobile/src/screens/__tests__/HomeScreen.test.tsx` | Actualizado con `QueryClientProvider` y mock de `useMerchants` |
+| `mobile/src/lib/supabaseRest.ts` | Tipo `Merchant` con `image_url`; query de `listMerchants` actualizado |
+| `mobile/App.tsx` | Integra `QueryClientProvider`, `SafeAreaProvider` y `RootNavigator` |
+| `mobile/package.json` | Añadido `pnpm.overrides` para forzar React 19 |
+| `mobile/task.md` | Bloques 4 y 5 marcados como completados |
 
 ### 🧪 Estado de Tests
 
 ```
-PASS  mobile/src/screens/__tests__/HomeScreen.test.tsx
+PASS  src/components/common/__tests__/ThemedText.test.tsx
+  ThemedText Component (TDD)
+    ✓ debe renderizar texto con color oscuro en modo claro
+    ✓ debe renderizar texto con color claro en modo oscuro (OLED)
+
+PASS  src/components/common/__tests__/ThemedView.test.tsx
+  ThemedView Component (TDD)
+    ✓ debe tener fondo blanco en modo claro
+    ✓ debe tener fondo negro OLED en modo oscuro
+    ✓ debe aceptar colores personalizados por tema
+
+PASS  src/hooks/__tests__/useTheme.test.tsx
+  useTheme Hook (TDD)
+    ✓ debe retornar los colores del modo claro cuando el sistema está en light
+    ✓ debe retornar los colores del modo oscuro OLED cuando el sistema está en dark
+    ✓ debe usar modo claro por defecto si el sistema no reporta preferencia
+
+PASS  src/hooks/__tests__/useMerchants.test.tsx
+  useMerchants Hook
+    ✓ debe obtener la lista de comercios y almacenarlos en caché
+
+PASS  src/screens/__tests__/HomeScreen.test.tsx
   HomeScreen
     ✓ debe renderizar el buscador
     ✓ debe mostrar las categorías principales
     ✓ debe mostrar la sección de comercios cercanos
     ✓ debe mostrar los filtros rápidos
 
-PASS  mobile/src/components/common/__tests__/Skeleton.test.tsx
-  Skeleton Component
-    ✓ debe renderizar con las dimensiones proporcionadas
-    ✓ debe soportar la variante circular
-    ✓ debe aplicar un color de fondo por defecto
+PASS  src/components/profile/__tests__/GamificationCard.test.tsx
+  GamificationCard Component (TDD)
+    ✓ debe mostrar el nivel Bronce y los puntos correctamente
+    ✓ debe mostrar el nivel Plata cuando los puntos superan 1000
+    ✓ debe mostrar una barra de progreso
 
-PASS  mobile/src/components/cart/__tests__/SmartCartModal.test.tsx
+PASS  src/components/cart/__tests__/SmartCartModal.test.tsx
   SmartCartModal Component
     ✓ debe mostrar la lista de productos y el total
     ✓ debe llamar a changeQty al presionar botones de cantidad
     ✓ debe llamar a remove al presionar el icono de basura
     ✓ debe mostrar mensaje de carrito vacio
 
-Test Suites: 3 passed, 3 total
-Tests:       11 passed, 11 total
+PASS  src/components/cart/__tests__/Upselling.test.tsx
+  SmartCartModal - Upselling Sugerido (TDD)
+    ✓ debe mostrar la sección "Otros usuarios también compraron" con recomendaciones
+
+PASS  src/screens/__tests__/CheckoutScreen.test.tsx
+  CheckoutScreen
+    ✓ debe mostrar el botón de confirmar deshabilitado sin items
+    ✓ debe habilitar el botón de confirmar al tener todo seleccionado
+
+Test Suites: 9 passed, 9 total
+Tests:       23 passed, 23 total
 ```
 
 ---
