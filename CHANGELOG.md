@@ -73,97 +73,44 @@ y este proyecto adhiere a [Versionado Semántico](https://semver.org/lang/es/).
 
 ### 🐛 Correcciones
 
-- **Error `Property 'name' does not exist on type 'User'` en Dashboard del Comerciante**: El componente `Dashboard.tsx` intentaba acceder a `user.name`, pero el tipo `User` de Supabase Auth no contiene esa propiedad. Se corrigió extrayendo `profile` del hook `useAuth()` y usando `profile?.full_name` con fallback a la primera parte del email.
-- **Ruta de importación en SmartCartModal**: Se corrigió la ruta de `../../constants/Colors` a `../../../constants/Colors`.
-- **"Invalid hook call" en useMerchants**: Resuelto forzando React 19 vía `pnpm.overrides` en `mobile/package.json` para alinear las versiones de React entre dependencias.
+- **Sincronización Crítica de Base de Datos**: Ejecución de migraciones para alinear el esquema de Supabase con el código de la App:
+  - Añadidas columnas `points` y `level` a la tabla `users` para el sistema de fidelización.
+  - Añadida columna `image_url` a `merchants` para visualización de logotipos.
+  - Creada tabla `payment_methods` con soporte RLS (corrigiendo error 404/400 en Checkout).
+  - Corregida discrepancia de nombres en `addresses` (de `location_type` a `type`).
+- **Error JSON / HTML (SyntaxError: Unexpected token '<')**: Resuelto creando el archivo `.env` en la carpeta `mobile` con las credenciales de Supabase, evitando peticiones a URLs vacías que devolvían el `index.html`.
+- **Placeholder IMGs (DNS Error)**: Se reemplazaron todas las llamadas a `via.placeholder.com` (fuera de servicio) por URLs de **Unsplash** de alta resolución en `HomeScreen`, `ProductsScreen` y `SmartCartModal`.
+- **Rutas de importación en Metro**: Corregidos errores "Unable to resolve" en las pantallas del conductor (`DashboardScreen.tsx`, `OrdersScreen.tsx`, `DeliveryDetailScreen.tsx`) ajustando los niveles de profundidad en los imports de `Colors` y `AuthContext`.
+- **Error `Property 'name' does not exist on type 'User'` en Dashboard del Comerciante**: Corregido usando `profile?.full_name`.
 
 ### 🔧 Mejoras Técnicas
 
-- **Resolución de incompatibilidad Jest 30 ↔ jest-expo 54**: Se descubrió mediante análisis profundo (Sequential Thinking + Context7) que `jest@30.2.0` no es compatible con `jest-expo@54.0.17`. Se downgradeó a `jest@29.7.0`.
-- **Refactor de Tests**: Se actualizó el uso de `toContainEqual` por `toMatchObject` en los tests de componentes para mayor robustez ante objetos de estilo aplanados.
-- **Tipo `Merchant` actualizado**: Se añadió el campo `image_url` al tipo y al query de `api.listMerchants` en `supabaseRest.ts`.
+- **Resolución de incompatibilidad Jest 30 ↔ jest-expo 54**: Downgrade a `jest@29.7.0` tras análisis sistemático.
+- **Limpieza de Caché de Metro**: Implementada rutina `npx expo start --web --clear` para asegurar la carga de nuevas variables de entorno.
 
 ### 📁 Archivos Nuevos
 
 | Archivo | Descripción |
 |---------|-------------|
+| `mobile/.env` | Configuración de variables de entorno para el proyecto móvil |
 | `mobile/src/hooks/useTheme.ts` | Hook centralizado para detección de tema del sistema |
-| `mobile/src/hooks/__tests__/useTheme.test.tsx` | Tests TDD para useTheme (3 casos) |
 | `mobile/src/components/common/ThemedText.tsx` | Texto adaptativo al tema activo |
 | `mobile/src/components/common/ThemedView.tsx` | Contenedor adaptativo con fondo OLED |
-| `mobile/src/components/common/__tests__/ThemedText.test.tsx` | Tests TDD para ThemedText (2 casos) |
-| `mobile/src/components/common/__tests__/ThemedView.test.tsx` | Tests TDD para ThemedView (3 casos) |
 | `mobile/src/hooks/useMerchants.ts` | Hook React Query para obtener comercios con caché |
-| `mobile/src/hooks/__tests__/useMerchants.test.tsx` | Tests para useMerchants |
 | `mobile/src/components/common/BlurImage.tsx` | Imagen con carga progresiva y efecto fade |
-| `mobile/src/screens/OrderDetailScreen.tsx` | Pantalla de seguimiento con Timeline Interactivo |
-| `mobile/src/components/profile/GamificationCard.tsx` | Card de fidelización con niveles y puntos |
-| `mobile/src/components/profile/AddressItem.tsx` | Item de dirección con alias e iconos |
-| `mobile/src/components/UnifiedMap.native.tsx` | Mapa 2.0 con Dark Mode |
 
-### 📝 Archivos Modificados
-
-| Archivo | Cambio |
-|---------|--------|
-| `mobile/src/screens/HomeScreen.tsx` | Integra `useMerchants`, `BlurImage` y skeletons de carga |
-| `mobile/src/screens/__tests__/HomeScreen.test.tsx` | Actualizado con `QueryClientProvider` y mock de `useMerchants` |
-| `mobile/src/lib/supabaseRest.ts` | Tipo `Merchant` con `image_url`; query de `listMerchants` actualizado |
-| `mobile/App.tsx` | Integra `QueryClientProvider`, `SafeAreaProvider` y `RootNavigator` |
-| `mobile/package.json` | Añadido `pnpm.overrides` para forzar React 19 |
-| `mobile/task.md` | Bloques 4 y 5 marcados como completados |
-
-### 🧪 Estado de Tests
+### 🧪 Estado de Tests FINAL
 
 ```
 PASS  src/components/common/__tests__/ThemedText.test.tsx
-  ThemedText Component (TDD)
-    ✓ debe renderizar texto con color oscuro en modo claro
-    ✓ debe renderizar texto con color claro en modo oscuro (OLED)
-
 PASS  src/components/common/__tests__/ThemedView.test.tsx
-  ThemedView Component (TDD)
-    ✓ debe tener fondo blanco en modo claro
-    ✓ debe tener fondo negro OLED en modo oscuro
-    ✓ debe aceptar colores personalizados por tema
-
 PASS  src/hooks/__tests__/useTheme.test.tsx
-  useTheme Hook (TDD)
-    ✓ debe retornar los colores del modo claro cuando el sistema está en light
-    ✓ debe retornar los colores del modo oscuro OLED cuando el sistema está en dark
-    ✓ debe usar modo claro por defecto si el sistema no reporta preferencia
-
 PASS  src/hooks/__tests__/useMerchants.test.tsx
-  useMerchants Hook
-    ✓ debe obtener la lista de comercios y almacenarlos en caché
-
 PASS  src/screens/__tests__/HomeScreen.test.tsx
-  HomeScreen
-    ✓ debe renderizar el buscador
-    ✓ debe mostrar las categorías principales
-    ✓ debe mostrar la sección de comercios cercanos
-    ✓ debe mostrar los filtros rápidos
-
 PASS  src/components/profile/__tests__/GamificationCard.test.tsx
-  GamificationCard Component (TDD)
-    ✓ debe mostrar el nivel Bronce y los puntos correctamente
-    ✓ debe mostrar el nivel Plata cuando los puntos superan 1000
-    ✓ debe mostrar una barra de progreso
-
 PASS  src/components/cart/__tests__/SmartCartModal.test.tsx
-  SmartCartModal Component
-    ✓ debe mostrar la lista de productos y el total
-    ✓ debe llamar a changeQty al presionar botones de cantidad
-    ✓ debe llamar a remove al presionar el icono de basura
-    ✓ debe mostrar mensaje de carrito vacio
-
 PASS  src/components/cart/__tests__/Upselling.test.tsx
-  SmartCartModal - Upselling Sugerido (TDD)
-    ✓ debe mostrar la sección "Otros usuarios también compraron" con recomendaciones
-
 PASS  src/screens/__tests__/CheckoutScreen.test.tsx
-  CheckoutScreen
-    ✓ debe mostrar el botón de confirmar deshabilitado sin items
-    ✓ debe habilitar el botón de confirmar al tener todo seleccionado
 
 Test Suites: 9 passed, 9 total
 Tests:       23 passed, 23 total
