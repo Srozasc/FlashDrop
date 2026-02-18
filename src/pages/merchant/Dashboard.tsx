@@ -6,7 +6,7 @@ import { formatCurrency } from '@/lib/utils';
 import { supabase } from '@/lib/supabase';
 
 export default function Dashboard() {
-  const { user } = useAuth();
+  const { user, profile } = useAuth();
   const [loading, setLoading] = useState(true);
   const [stats, setStats] = useState({
     ordersToday: 0,
@@ -117,11 +117,13 @@ export default function Dashboard() {
     },
   ];
 
+  const userName = profile?.full_name || user?.email?.split('@')[0] || 'Comerciante';
+
   return (
     <div className="space-y-8 animate-in fade-in duration-500">
       <div className="flex justify-between items-center">
         <div>
-          <h2 className="text-3xl font-extrabold text-gray-900 tracking-tight">Bienvenido, {user?.name?.split(' ')[0]}</h2>
+          <h2 className="text-3xl font-extrabold text-gray-900 tracking-tight">Bienvenido, {userName.split(' ')[0]}</h2>
           <p className="text-gray-500 mt-1 font-medium">Aquí tienes el resumen de tu negocio hoy.</p>
         </div>
         <button
@@ -190,9 +192,9 @@ export default function Dashboard() {
                       </td>
                       <td className="px-6 py-4">
                         <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold uppercase ${order.status === 'completed' ? 'bg-green-100 text-green-700' :
-                            order.status === 'pending' ? 'bg-amber-100 text-amber-700' :
-                              order.status === 'preparing' ? 'bg-blue-100 text-blue-700' :
-                                'bg-gray-100 text-gray-600'
+                          order.status === 'pending' ? 'bg-amber-100 text-amber-700' :
+                            order.status === 'preparing' ? 'bg-blue-100 text-blue-700' :
+                              'bg-gray-100 text-gray-600'
                           }`}>
                           {order.status === 'pending' ? 'Pendiente' :
                             order.status === 'preparing' ? 'Preparando' :
