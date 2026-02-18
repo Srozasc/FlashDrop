@@ -85,6 +85,7 @@ y este proyecto adhiere a [Versionado Semántico](https://semver.org/lang/es/).
 - **Solapamiento de UI con TabBar Flotante**: Corregido el problema donde la barra de navegación inferior tapaba botones y contenido esencial:
   - Implementación de `paddingBottom` dinámico usando `useSafeAreaInsets` en las pantallas `HomeScreen`, `ProfileScreen`, `AddressesScreen`, `CheckoutScreen`, `DashboardScreen` y `OrdersScreen`.
   - Resolución de `ReferenceError: insets is not defined` en `DashboardScreen.tsx` moviendo los estilos dinámicos al cuerpo del componente.
+- **Error 405 (Method Not Allowed) en Perfil**: Corregida la actualización de metadatos de usuario en `auth.ts` cambiando el método HTTP de `POST` a `PUT`, cumpliendo con los requisitos de la API de Supabase Auth para el endpoint `/auth/v1/user`.
 
 ### 🔧 Mejoras Técnicas
 
