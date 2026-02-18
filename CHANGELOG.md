@@ -82,6 +82,9 @@ y este proyecto adhiere a [Versionado Semántico](https://semver.org/lang/es/).
 - **Placeholder IMGs (DNS Error)**: Se reemplazaron todas las llamadas a `via.placeholder.com` (fuera de servicio) por URLs de **Unsplash** de alta resolución en `HomeScreen`, `ProductsScreen` y `SmartCartModal`.
 - **Rutas de importación en Metro**: Corregidos errores "Unable to resolve" en las pantallas del conductor (`DashboardScreen.tsx`, `OrdersScreen.tsx`, `DeliveryDetailScreen.tsx`) ajustando los niveles de profundidad en los imports de `Colors` y `AuthContext`.
 - **Error `Property 'name' does not exist on type 'User'` en Dashboard del Comerciante**: Corregido usando `profile?.full_name`.
+- **Solapamiento de UI con TabBar Flotante**: Corregido el problema donde la barra de navegación inferior tapaba botones y contenido esencial:
+  - Implementación de `paddingBottom` dinámico usando `useSafeAreaInsets` en las pantallas `HomeScreen`, `ProfileScreen`, `AddressesScreen`, `CheckoutScreen`, `DashboardScreen` y `OrdersScreen`.
+  - Resolución de `ReferenceError: insets is not defined` en `DashboardScreen.tsx` moviendo los estilos dinámicos al cuerpo del componente.
 
 ### 🔧 Mejoras Técnicas
 
