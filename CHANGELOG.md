@@ -11,15 +11,35 @@ y este proyecto adhiere a [Versionado Semántico](https://semver.org/lang/es/).
 
 ### ✨ Nuevas Funcionalidades
 
-- **Skeleton Loaders Premium (Bloque 2)**: Se implementó un sistema de carga progresiva para mejorar el performance percibido:
-  - Componente base `Skeleton.tsx` con animación pulsante de opacidad.
-  - Componente `MerchantCardSkeleton.tsx` que replica la estructura de las tarjetas de comercios.
-  - Integración en `HomeScreen` con estado de carga simulado (2s).
+- **One-Tap Checkout (Bloque 2)**: Implementación de una experiencia de pago ultra-rápida:
+  - Selección de direcciones de entrega preexistentes.
+  - Gestión y selección de métodos de pago (Tarjetas, Efectivo).
+  - Integración con `api.createOrder` y `api.createOrderItems` para procesamiento completo.
+  - Pantalla de éxito premium con feedback visual claro.
 
-- **Smart Cart Modal (Bloque 2)**: Implementación de un gestor de carrito tipo Bottom Sheet:
-  - Diseño premium con áreas de descarte y micro-animaciones nativas.
-  - Integración con `CartContext` para listado, modificación de cantidades y eliminación de productos.
-  - Botón flotante inteligente en la `HomeScreen` con contador en tiempo real y acceso rápido.
+- **Upselling Sugerido (Bloque 2)**: Algoritmo de recomendaciones inteligentes:
+  - Sugerencias de productos del mismo comercio basados en popularidad.
+  - Interfaz de carrusel horizontal con micro-interacciones para añadir al carrito.
+
+- **Timeline Interactivo (Bloque 3)**: Seguimiento de pedido en tiempo real con estética premium:
+  - Estados dinámicos: Pedido Recibido, En Preparación, En Camino, Entregado.
+  - Sistema de *polling* automático cada 30 segundos para actualización de estado sin recarga.
+  - Feedback visual del repartidor asignado con botón de contacto rápido.
+
+- **Mapa 2.0 (Bloque 3)**: Rediseño completo del núcleo cartográfico:
+  - Implementación de **Dark Mode Custom Map Style** para una estética moderna OLED.
+  - Polilínea de ruta suavizada con curvaturas estéticas.
+  - Marcadores personalizados (Comercio y Cliente) con iconos de Lucide.
+
+- **Gamificación & Fidelización (Bloque 4)**: Nuevo sistema de niveles para el usuario:
+  - Pantalla de perfil rediseñada con `GamificationCard`.
+  - Niveles: **Bronce, Plata y Oro** con progresión visual.
+  - Barra de progreso dinámica basada en puntos acumulados.
+
+- **Gestión de Direcciones PRO (Bloque 4)**: Mejora en la administración de ubicaciones:
+  - Soporte para **Alias Personalizados** (Casa, Trabajo, Gimnasio, etc.).
+  - Selector de tipos de ubicación con iconos específicos.
+  - Persistencia en Supabase mediante actualización de esquema.
 
 - **Pantalla de Inicio Mobile (HomeScreen)**: Se implementó una nueva pantalla de descubrimiento para la app móvil con diseño premium que incluye:
   - Buscador con placeholder dinámico ("¿Qué se te antoja hoy?")
@@ -53,14 +73,14 @@ y este proyecto adhiere a [Versionado Semántico](https://semver.org/lang/es/).
 
 | Archivo | Descripción |
 |---------|-------------|
-| `mobile/src/components/common/Skeleton.tsx` | Componente base de skeleton animado |
-| `mobile/src/components/common/MerchantCardSkeleton.tsx` | Placeholder para tarjetas de comercios |
-| `mobile/src/components/cart/SmartCartModal.tsx` | Modal Bottom-Sheet para gestión de carrito |
-| `mobile/src/components/cart/__tests__/SmartCartModal.test.tsx` | 4 tests para el modal del carrito |
-| `mobile/src/components/common/__tests__/Skeleton.test.tsx` | 3 tests para el sistema de skeletons |
-| `mobile/src/screens/HomeScreen.tsx` | Pantalla principal con integración de skeletons y carrito |
-| `mobile/src/navigation/RootNavigator.tsx` | Navegador raíz con tab navigation |
-| `mobile/task.md` | Lista de tareas para el rediseño mobile |
+| `mobile/src/screens/OrderDetailScreen.tsx` | Pantalla de seguimiento con Timeline Interactivo |
+| `mobile/src/screens/__tests__/OrderDetailScreen.test.tsx` | Test unitarios para el seguimiento de pedido |
+| `mobile/src/components/profile/GamificationCard.tsx` | Card de fidelización con niveles y puntos |
+| `mobile/src/components/profile/__tests__/GamificationCard.test.tsx` | Test para el sistema de niveles |
+| `mobile/src/components/profile/AddressItem.tsx` | Item de dirección con alias e iconos |
+| `mobile/src/components/profile/__tests__/AddressItem.test.tsx` | Test para la gestión de direcciones |
+| `mobile/src/components/UnifiedMap.native.tsx` | Actualización a Mapa 2.0 con Dark Mode |
+| `mobile/task.md` | Lista de tareas actualizada al Bloque 4 |
 
 ### 📝 Archivos Modificados
 
