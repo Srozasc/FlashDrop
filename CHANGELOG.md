@@ -66,6 +66,23 @@ y este proyecto adhiere a [Versionado Semántico](https://semver.org/lang/es/).
 
 - **Navegación Mobile con Tab Navigator**: Se creó `RootNavigator.tsx` con navegación por pestañas usando `@react-navigation/bottom-tabs`, integrando la nueva HomeScreen como pantalla principal.
 
+- **Experiencia del Repartidor - Seguridad y Soporte (Bloque 8)**: Implementación de la red de seguridad para Shoppers mediante TDD:
+  - **Centro de Seguridad (SOS)**: Botón de pánico de gran formato con activación de protocolo de emergencia y notificación instantánea.
+  - **Reporte de Incidentes**: Sistema de categorización rápida (accidente, avería, salud) con envío de geolocalización.
+  - **Soporte Prioritario VIP**: Interfaz de contacto directo 24/7 para asistencia especializada.
+  - **SafetyScreen**: Pantalla dedicada a la protección integral del conductor.
+
+- **Experiencia del Repartidor - Finanzas y Retención (Bloque 7)**: Implementación del ecosistema financiero para Shoppers mediante TDD:
+  - **FlashDrop Wallet**: Componente premium con desglose de ingresos (Base, Propinas, Bonos) y historial de actividad reciente.
+  - **Retiro Instantáneo (Cash Out)**: Funcionalidad integrada para transferencias inmediatas a cuenta bancaria con flujo de confirmación.
+  - **Driver Pro Levels**: Sistema de gamificación con niveles (Bronze, Silver, Gold), barra de progreso y beneficios dinámicos.
+  - **FinanceScreen**: Nueva pantalla centralizada para la gestión del capital del repartidor.
+
+- **Experiencia del Repartidor - Eficiencia y Logística (Bloque 6)**: Implementación de herramientas avanzadas para Shoppers mediante TDD:
+  - **Mapas de Calor (Hotspots)**: Visualización de zonas con alta demanda de pedidos en el Dashboard del conductor, con soporte para Dark Mode OLED.
+  - **Navegación Externa Integrada**: Botón inteligente para abrir direcciones directamente en **Google Maps** o **Waze** con un solo toque.
+  - **Confirmación de Entrega Segura**: Sistema de validación mediante **PIN de 4 dígitos** del cliente para prevenir fraude y asegurar la recepción.
+
 - **Entorno de Testing Mobile (TDD)**: Se configuró un entorno de pruebas unitarias completo para la app Expo/React Native:
   - Instalación y configuración de `jest-expo`, `@testing-library/react-native`, `jest@29` y `react-test-renderer@19.1.0`
   - Configuración de `jest.config.js` compatible con **pnpm** (resuelto problema de symlinks con `.pnpm/`)
@@ -102,6 +119,14 @@ y este proyecto adhiere a [Versionado Semántico](https://semver.org/lang/es/).
 | `mobile/src/components/common/ThemedView.tsx` | Contenedor adaptativo con fondo OLED |
 | `mobile/src/hooks/useMerchants.ts` | Hook React Query para obtener comercios con caché |
 | `mobile/src/components/common/BlurImage.tsx` | Imagen con carga progresiva y efecto fade |
+| `mobile/src/components/driver/OrderHeatmap.tsx` | Visualización de zonas de demanda en el mapa |
+| `mobile/src/components/driver/ExternalNavigationButton.tsx` | Acceso rápido a Google Maps y Waze |
+| `mobile/src/components/driver/DeliveryConfirmation.tsx` | Formulario de confirmación de entrega por PIN |
+| `mobile/src/components/driver/DriverWallet.tsx` | Desglose financiero e historial de transacciones |
+| `mobile/src/components/driver/DriverLevelCard.tsx` | Tarjeta de nivel y beneficios de fidelidad |
+| `mobile/src/screens/driver/FinanceScreen.tsx` | Pantalla principal de gestión financiera |
+| `mobile/src/components/driver/SafetyCenter.tsx` | Hub de emergencias y reportes de incidentes |
+| `mobile/src/screens/driver/SafetyScreen.tsx` | Pantalla dedicada a la seguridad del repartidor |
 
 ### 🧪 Estado de Tests FINAL
 
@@ -115,9 +140,17 @@ PASS  src/components/profile/__tests__/GamificationCard.test.tsx
 PASS  src/components/cart/__tests__/SmartCartModal.test.tsx
 PASS  src/components/cart/__tests__/Upselling.test.tsx
 PASS  src/screens/__tests__/CheckoutScreen.test.tsx
+PASS  src/components/driver/__tests__/OrderHeatmap.test.tsx
+PASS  src/components/driver/__tests__/ExternalNavigationButton.test.tsx
+PASS  src/components/driver/__tests__/DeliveryConfirmation.test.tsx
+PASS  src/components/driver/__tests__/DriverWallet.test.tsx
+PASS  src/screens/driver/__tests__/FinanceScreen.test.tsx
+PASS  src/components/driver/__tests__/DriverLevelCard.test.tsx
+PASS  src/components/driver/__tests__/SafetyCenter.test.tsx
+PASS  src/screens/driver/__tests__/SafetyScreen.test.tsx
 
-Test Suites: 9 passed, 9 total
-Tests:       23 passed, 23 total
+Test Suites: 17 passed, 17 total
+Tests:       43 passed, 43 total
 ```
 
 ---
