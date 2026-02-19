@@ -1,0 +1,31 @@
+
+> mobile@1.0.0 test
+> jest src/components/driver/__tests__/OrderHeatmap.test.tsx
+
+FAIL src/components/driver/__tests__/OrderHeatmap.test.tsx
+  OrderHeatmap
+    ÔêÜ debe renderizar el mapa correctamente (21 ms)
+    ├ù debe renderizar la cantidad correcta de c├¡rculos de calor (hotspots) (14 ms)
+
+  ÔùÅ OrderHeatmap ÔÇ║ debe renderizar la cantidad correcta de c├¡rculos de calor (hotspots)
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 2
+    Received: 4
+
+      41 |         const { getAllByTestId } = render(<OrderHeatmap hotspots={mockHotspots} />);
+      42 |         const circles = getAllByTestId('heatmap-circle');
+    > 43 |         expect(circles.length).toBe(mockHotspots.length);
+         |                                ^
+      44 |     });
+      45 | });
+      46 |
+
+      at Object.toBe (src/components/driver/__tests__/OrderHeatmap.test.tsx:43:32)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 1 passed, 2 total
+Snapshots:   0 total
+Time:        1.488 s
+Ran all test suites matching /src\\components\\driver\\__tests__\\OrderHeatmap.test.tsx/i.

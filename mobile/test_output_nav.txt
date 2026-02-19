@@ -1,0 +1,174 @@
+
+> mobile@1.0.0 test
+> jest src/components/driver/__tests__/ExternalNavigationButton.test.tsx
+
+  console.error
+    Error al abrir navegaci├│n externa: TypeError: Cannot read properties of undefined (reading 'canOpenURL')
+        at canOpenURL (D:\desarrollo\workspace\FlashDrop\mobile\src\components\driver\ExternalNavigationButton.tsx:44:45)
+        at Generator.next (<anonymous>)
+        at asyncGeneratorStep (D:\desarrollo\workspace\FlashDrop\mobile\node_modules\@babel\runtime\helpers\asyncToGenerator.js:3:17)
+        at _next (D:\desarrollo\workspace\FlashDrop\mobile\node_modules\@babel\runtime\helpers\asyncToGenerator.js:17:9)
+        at D:\desarrollo\workspace\FlashDrop\mobile\node_modules\@babel\runtime\helpers\asyncToGenerator.js:22:7
+        at new Promise (<anonymous>)
+        at D:\desarrollo\workspace\FlashDrop\mobile\node_modules\@babel\runtime\helpers\asyncToGenerator.js:14:12
+        at apply (D:\desarrollo\workspace\FlashDrop\mobile\src\components\driver\ExternalNavigationButton.tsx:32:22)
+        at handler (D:\desarrollo\workspace\FlashDrop\mobile\node_modules\.pnpm\@testing-library+react-nati_d857b401ccf7ca28bc8b170249c32b80\node_modules\@testing-library\react-native\src\fire-event.ts:123:19)
+        at callback (D:\desarrollo\workspace\FlashDrop\mobile\node_modules\.pnpm\@testing-library+react-nati_d857b401ccf7ca28bc8b170249c32b80\node_modules\@testing-library\react-native\src\act.ts:31:24)
+        at Object.<anonymous>.process.env.NODE_ENV.exports.act (D:\desarrollo\workspace\FlashDrop\mobile\node_modules\.pnpm\react@19.1.0\node_modules\react\cjs\react.development.js:789:22)
+        at actImplementation (D:\desarrollo\workspace\FlashDrop\mobile\node_modules\.pnpm\@testing-library+react-nati_d857b401ccf7ca28bc8b170249c32b80\node_modules\@testing-library\react-native\src\act.ts:30:25)
+        at fireEvent (D:\desarrollo\workspace\FlashDrop\mobile\node_modules\.pnpm\@testing-library+react-nati_d857b401ccf7ca28bc8b170249c32b80\node_modules\@testing-library\react-native\src\fire-event.ts:122:11)
+        at Function.fireEvent [as press] (D:\desarrollo\workspace\FlashDrop\mobile\node_modules\.pnpm\@testing-library+react-nati_d857b401ccf7ca28bc8b170249c32b80\node_modules\@testing-library\react-native\src\fire-event.ts:130:3)
+        at Object.press (D:\desarrollo\workspace\FlashDrop\mobile\src\components\driver\__tests__\ExternalNavigationButton.test.tsx:25:19)
+        at Generator.next (<anonymous>)
+        at asyncGeneratorStep (D:\desarrollo\workspace\FlashDrop\mobile\node_modules\@babel\runtime\helpers\asyncToGenerator.js:3:17)
+        at _next (D:\desarrollo\workspace\FlashDrop\mobile\node_modules\@babel\runtime\helpers\asyncToGenerator.js:17:9)
+        at D:\desarrollo\workspace\FlashDrop\mobile\node_modules\@babel\runtime\helpers\asyncToGenerator.js:22:7
+        at new Promise (<anonymous>)
+        at Object.<anonymous> (D:\desarrollo\workspace\FlashDrop\mobile\node_modules\@babel\runtime\helpers\asyncToGenerator.js:14:12)
+        at Promise.then.completed (D:\desarrollo\workspace\FlashDrop\mobile\node_modules\.pnpm\jest-circus@29.7.0\node_modules\jest-circus\build\utils.js:298:28)
+        at new Promise (<anonymous>)
+        at callAsyncCircusFn (D:\desarrollo\workspace\FlashDrop\mobile\node_modules\.pnpm\jest-circus@29.7.0\node_modules\jest-circus\build\utils.js:231:10)
+        at _callCircusTest (D:\desarrollo\workspace\FlashDrop\mobile\node_modules\.pnpm\jest-circus@29.7.0\node_modules\jest-circus\build\run.js:316:40)
+        at _runTest (D:\desarrollo\workspace\FlashDrop\mobile\node_modules\.pnpm\jest-circus@29.7.0\node_modules\jest-circus\build\run.js:252:3)
+        at _runTestsForDescribeBlock (D:\desarrollo\workspace\FlashDrop\mobile\node_modules\.pnpm\jest-circus@29.7.0\node_modules\jest-circus\build\run.js:126:9)
+        at _runTestsForDescribeBlock (D:\desarrollo\workspace\FlashDrop\mobile\node_modules\.pnpm\jest-circus@29.7.0\node_modules\jest-circus\build\run.js:121:9)
+        at run (D:\desarrollo\workspace\FlashDrop\mobile\node_modules\.pnpm\jest-circus@29.7.0\node_modules\jest-circus\build\run.js:71:3)
+        at runAndTransformResultsToJestFormat (D:\desarrollo\workspace\FlashDrop\mobile\node_modules\.pnpm\jest-circus@29.7.0\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:122:21)
+        at jestAdapter (D:\desarrollo\workspace\FlashDrop\mobile\node_modules\.pnpm\jest-circus@29.7.0\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
+        at runTestInternal (D:\desarrollo\workspace\FlashDrop\mobile\node_modules\.pnpm\jest-runner@29.7.0\node_modules\jest-runner\build\runTest.js:367:16)
+        at runTest (D:\desarrollo\workspace\FlashDrop\mobile\node_modules\.pnpm\jest-runner@29.7.0\node_modules\jest-runner\build\runTest.js:444:34)
+
+    [0m [90m 49 |[39m             }
+     [90m 50 |[39m         } [36mcatch[39m (error) {
+    [31m[1m>[22m[39m[90m 51 |[39m             console[33m.[39merror([32m'Error al abrir navegaci├│n externa:'[39m[33m,[39m error)[33m;[39m
+     [90m    |[39m                     [31m[1m^[22m[39m
+     [90m 52 |[39m             [33mAlert[39m[33m.[39malert([32m'Error'[39m[33m,[39m [32m'Hubo un fallo al intentar abrir la aplicaci├│n de navegaci├│n.'[39m)[33m;[39m
+     [90m 53 |[39m         }
+     [90m 54 |[39m     }[33m;[39m[0m
+
+      at error (src/components/driver/ExternalNavigationButton.tsx:51:21)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:22:7
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:14:12
+      at apply (src/components/driver/ExternalNavigationButton.tsx:32:22)
+      at handler (node_modules/.pnpm/@testing-library+react-nati_d857b401ccf7ca28bc8b170249c32b80/node_modules/@testing-library/react-native/src/fire-event.ts:123:19)
+      at callback (node_modules/.pnpm/@testing-library+react-nati_d857b401ccf7ca28bc8b170249c32b80/node_modules/@testing-library/react-native/src/act.ts:31:24)
+      at Object.<anonymous>.process.env.NODE_ENV.exports.act (node_modules/.pnpm/react@19.1.0/node_modules/react/cjs/react.development.js:789:22)
+      at actImplementation (node_modules/.pnpm/@testing-library+react-nati_d857b401ccf7ca28bc8b170249c32b80/node_modules/@testing-library/react-native/src/act.ts:30:25)
+      at fireEvent (node_modules/.pnpm/@testing-library+react-nati_d857b401ccf7ca28bc8b170249c32b80/node_modules/@testing-library/react-native/src/fire-event.ts:122:11)
+      at Function.fireEvent [as press] (node_modules/.pnpm/@testing-library+react-nati_d857b401ccf7ca28bc8b170249c32b80/node_modules/@testing-library/react-native/src/fire-event.ts:130:3)
+      at Object.press (src/components/driver/__tests__/ExternalNavigationButton.test.tsx:25:19)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:22:7
+      at Object.<anonymous> (node_modules/@babel/runtime/helpers/asyncToGenerator.js:14:12)
+
+  console.error
+    Error al abrir navegaci├│n externa: TypeError: Cannot read properties of undefined (reading 'canOpenURL')
+        at canOpenURL (D:\desarrollo\workspace\FlashDrop\mobile\src\components\driver\ExternalNavigationButton.tsx:44:45)
+        at Generator.next (<anonymous>)
+        at asyncGeneratorStep (D:\desarrollo\workspace\FlashDrop\mobile\node_modules\@babel\runtime\helpers\asyncToGenerator.js:3:17)
+        at _next (D:\desarrollo\workspace\FlashDrop\mobile\node_modules\@babel\runtime\helpers\asyncToGenerator.js:17:9)
+        at D:\desarrollo\workspace\FlashDrop\mobile\node_modules\@babel\runtime\helpers\asyncToGenerator.js:22:7
+        at new Promise (<anonymous>)
+        at D:\desarrollo\workspace\FlashDrop\mobile\node_modules\@babel\runtime\helpers\asyncToGenerator.js:14:12
+        at apply (D:\desarrollo\workspace\FlashDrop\mobile\src\components\driver\ExternalNavigationButton.tsx:32:22)
+        at handler (D:\desarrollo\workspace\FlashDrop\mobile\node_modules\.pnpm\@testing-library+react-nati_d857b401ccf7ca28bc8b170249c32b80\node_modules\@testing-library\react-native\src\fire-event.ts:123:19)
+        at callback (D:\desarrollo\workspace\FlashDrop\mobile\node_modules\.pnpm\@testing-library+react-nati_d857b401ccf7ca28bc8b170249c32b80\node_modules\@testing-library\react-native\src\act.ts:31:24)
+        at Object.<anonymous>.process.env.NODE_ENV.exports.act (D:\desarrollo\workspace\FlashDrop\mobile\node_modules\.pnpm\react@19.1.0\node_modules\react\cjs\react.development.js:789:22)
+        at actImplementation (D:\desarrollo\workspace\FlashDrop\mobile\node_modules\.pnpm\@testing-library+react-nati_d857b401ccf7ca28bc8b170249c32b80\node_modules\@testing-library\react-native\src\act.ts:30:25)
+        at fireEvent (D:\desarrollo\workspace\FlashDrop\mobile\node_modules\.pnpm\@testing-library+react-nati_d857b401ccf7ca28bc8b170249c32b80\node_modules\@testing-library\react-native\src\fire-event.ts:122:11)
+        at Function.fireEvent [as press] (D:\desarrollo\workspace\FlashDrop\mobile\node_modules\.pnpm\@testing-library+react-nati_d857b401ccf7ca28bc8b170249c32b80\node_modules\@testing-library\react-native\src\fire-event.ts:130:3)
+        at Object.press (D:\desarrollo\workspace\FlashDrop\mobile\src\components\driver\__tests__\ExternalNavigationButton.test.tsx:41:19)
+        at Generator.next (<anonymous>)
+        at asyncGeneratorStep (D:\desarrollo\workspace\FlashDrop\mobile\node_modules\@babel\runtime\helpers\asyncToGenerator.js:3:17)
+        at _next (D:\desarrollo\workspace\FlashDrop\mobile\node_modules\@babel\runtime\helpers\asyncToGenerator.js:17:9)
+        at D:\desarrollo\workspace\FlashDrop\mobile\node_modules\@babel\runtime\helpers\asyncToGenerator.js:22:7
+        at new Promise (<anonymous>)
+        at Object.<anonymous> (D:\desarrollo\workspace\FlashDrop\mobile\node_modules\@babel\runtime\helpers\asyncToGenerator.js:14:12)
+        at Promise.then.completed (D:\desarrollo\workspace\FlashDrop\mobile\node_modules\.pnpm\jest-circus@29.7.0\node_modules\jest-circus\build\utils.js:298:28)
+        at new Promise (<anonymous>)
+        at callAsyncCircusFn (D:\desarrollo\workspace\FlashDrop\mobile\node_modules\.pnpm\jest-circus@29.7.0\node_modules\jest-circus\build\utils.js:231:10)
+        at _callCircusTest (D:\desarrollo\workspace\FlashDrop\mobile\node_modules\.pnpm\jest-circus@29.7.0\node_modules\jest-circus\build\run.js:316:40)
+        at _runTest (D:\desarrollo\workspace\FlashDrop\mobile\node_modules\.pnpm\jest-circus@29.7.0\node_modules\jest-circus\build\run.js:252:3)
+        at _runTestsForDescribeBlock (D:\desarrollo\workspace\FlashDrop\mobile\node_modules\.pnpm\jest-circus@29.7.0\node_modules\jest-circus\build\run.js:126:9)
+        at _runTestsForDescribeBlock (D:\desarrollo\workspace\FlashDrop\mobile\node_modules\.pnpm\jest-circus@29.7.0\node_modules\jest-circus\build\run.js:121:9)
+        at run (D:\desarrollo\workspace\FlashDrop\mobile\node_modules\.pnpm\jest-circus@29.7.0\node_modules\jest-circus\build\run.js:71:3)
+        at runAndTransformResultsToJestFormat (D:\desarrollo\workspace\FlashDrop\mobile\node_modules\.pnpm\jest-circus@29.7.0\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:122:21)
+        at jestAdapter (D:\desarrollo\workspace\FlashDrop\mobile\node_modules\.pnpm\jest-circus@29.7.0\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
+        at runTestInternal (D:\desarrollo\workspace\FlashDrop\mobile\node_modules\.pnpm\jest-runner@29.7.0\node_modules\jest-runner\build\runTest.js:367:16)
+        at runTest (D:\desarrollo\workspace\FlashDrop\mobile\node_modules\.pnpm\jest-runner@29.7.0\node_modules\jest-runner\build\runTest.js:444:34)
+
+    [0m [90m 49 |[39m             }
+     [90m 50 |[39m         } [36mcatch[39m (error) {
+    [31m[1m>[22m[39m[90m 51 |[39m             console[33m.[39merror([32m'Error al abrir navegaci├│n externa:'[39m[33m,[39m error)[33m;[39m
+     [90m    |[39m                     [31m[1m^[22m[39m
+     [90m 52 |[39m             [33mAlert[39m[33m.[39malert([32m'Error'[39m[33m,[39m [32m'Hubo un fallo al intentar abrir la aplicaci├│n de navegaci├│n.'[39m)[33m;[39m
+     [90m 53 |[39m         }
+     [90m 54 |[39m     }[33m;[39m[0m
+
+      at error (src/components/driver/ExternalNavigationButton.tsx:51:21)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:22:7
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:14:12
+      at apply (src/components/driver/ExternalNavigationButton.tsx:32:22)
+      at handler (node_modules/.pnpm/@testing-library+react-nati_d857b401ccf7ca28bc8b170249c32b80/node_modules/@testing-library/react-native/src/fire-event.ts:123:19)
+      at callback (node_modules/.pnpm/@testing-library+react-nati_d857b401ccf7ca28bc8b170249c32b80/node_modules/@testing-library/react-native/src/act.ts:31:24)
+      at Object.<anonymous>.process.env.NODE_ENV.exports.act (node_modules/.pnpm/react@19.1.0/node_modules/react/cjs/react.development.js:789:22)
+      at actImplementation (node_modules/.pnpm/@testing-library+react-nati_d857b401ccf7ca28bc8b170249c32b80/node_modules/@testing-library/react-native/src/act.ts:30:25)
+      at fireEvent (node_modules/.pnpm/@testing-library+react-nati_d857b401ccf7ca28bc8b170249c32b80/node_modules/@testing-library/react-native/src/fire-event.ts:122:11)
+      at Function.fireEvent [as press] (node_modules/.pnpm/@testing-library+react-nati_d857b401ccf7ca28bc8b170249c32b80/node_modules/@testing-library/react-native/src/fire-event.ts:130:3)
+      at Object.press (src/components/driver/__tests__/ExternalNavigationButton.test.tsx:41:19)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:22:7
+      at Object.<anonymous> (node_modules/@babel/runtime/helpers/asyncToGenerator.js:14:12)
+
+FAIL src/components/driver/__tests__/ExternalNavigationButton.test.tsx (13.892 s)
+  ExternalNavigationButton
+    ├ù debe llamar a Linking.openURL con formato de Google Maps al presionar (714 ms)
+    ├ù debe llamar a Linking.openURL con formato de Waze al presionar (47 ms)
+
+  ÔùÅ ExternalNavigationButton ÔÇ║ debe llamar a Linking.openURL con formato de Google Maps al presionar
+
+    TypeError: Cannot read properties of undefined (reading 'openURL')
+
+      25 |         fireEvent.press(getByText('Google Maps'));
+      26 |
+    > 27 |         expect(Linking.openURL).toHaveBeenCalledWith(
+         |                        ^
+      28 |             expect.stringContaining(`https://www.google.com/maps/search/?api=1&query=${mockLat},${mockLon}`)
+      29 |         );
+      30 |     });
+
+      at Object.openURL (src/components/driver/__tests__/ExternalNavigationButton.test.tsx:27:24)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:22:7
+      at Object.<anonymous> (node_modules/@babel/runtime/helpers/asyncToGenerator.js:14:12)
+
+  ÔùÅ ExternalNavigationButton ÔÇ║ debe llamar a Linking.openURL con formato de Waze al presionar
+
+    TypeError: Cannot read properties of undefined (reading 'openURL')
+
+      41 |         fireEvent.press(getByText('Waze'));
+      42 |
+    > 43 |         expect(Linking.openURL).toHaveBeenCalledWith(
+         |                        ^
+      44 |             expect.stringContaining(`https://waze.com/ul?ll=${mockLat},${mockLon}&navigate=yes`)
+      45 |         );
+      46 |     });
+
+      at Object.openURL (src/components/driver/__tests__/ExternalNavigationButton.test.tsx:43:24)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:22:7
+      at Object.<anonymous> (node_modules/@babel/runtime/helpers/asyncToGenerator.js:14:12)
+
+Test Suites: 1 failed, 1 total
+Tests:       2 failed, 2 total
+Snapshots:   0 total
+Time:        14.759 s, estimated 86 s
+Ran all test suites matching /src\\components\\driver\\__tests__\\ExternalNavigationButton.test.tsx/i.

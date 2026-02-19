@@ -1,0 +1,59 @@
+
+> mobile@1.0.0 test
+> jest src/components/driver/__tests__/ExternalNavigationButton.test.tsx
+
+FAIL src/components/driver/__tests__/ExternalNavigationButton.test.tsx
+  ExternalNavigationButton
+    ├ù debe llamar a Linking.openURL con formato de Google Maps al presionar (456 ms)
+    ├ù debe llamar a Linking.openURL con formato de Waze al presionar (9 ms)
+
+  ÔùÅ ExternalNavigationButton ÔÇ║ debe llamar a Linking.openURL con formato de Google Maps al presionar
+
+    expect(jest.fn()).toHaveBeenCalledWith(...expected)
+
+    Expected: StringContaining "https://www.google.com/maps/search/?api=1&query=-34.6037,-58.3816"
+
+    Number of calls: 0
+
+      29 |         fireEvent.press(getByText('Google Maps'));
+      30 |
+    > 31 |         expect(Linking.openURL).toHaveBeenCalledWith(
+         |                                 ^
+      32 |             expect.stringContaining(`https://www.google.com/maps/search/?api=1&query=${mockLat},${mockLon}`)
+      33 |         );
+      34 |     });
+
+      at Object.toHaveBeenCalledWith (src/components/driver/__tests__/ExternalNavigationButton.test.tsx:31:33)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:22:7
+      at Object.<anonymous> (node_modules/@babel/runtime/helpers/asyncToGenerator.js:14:12)
+
+  ÔùÅ ExternalNavigationButton ÔÇ║ debe llamar a Linking.openURL con formato de Waze al presionar
+
+    expect(jest.fn()).toHaveBeenCalledWith(...expected)
+
+    Expected: StringContaining "https://waze.com/ul?ll=-34.6037,-58.3816&navigate=yes"
+    Received: "https://www.google.com/maps/search/?api=1&query=-34.6037,-58.3816"
+
+    Number of calls: 1
+
+      45 |         fireEvent.press(getByText('Waze'));
+      46 |
+    > 47 |         expect(Linking.openURL).toHaveBeenCalledWith(
+         |                                 ^
+      48 |             expect.stringContaining(`https://waze.com/ul?ll=${mockLat},${mockLon}&navigate=yes`)
+      49 |         );
+      50 |     });
+
+      at Object.toHaveBeenCalledWith (src/components/driver/__tests__/ExternalNavigationButton.test.tsx:47:33)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:22:7
+      at Object.<anonymous> (node_modules/@babel/runtime/helpers/asyncToGenerator.js:14:12)
+
+Test Suites: 1 failed, 1 total
+Tests:       2 failed, 2 total
+Snapshots:   0 total
+Time:        3.831 s, estimated 7 s
+Ran all test suites matching /src\\components\\driver\\__tests__\\ExternalNavigationButton.test.tsx/i.

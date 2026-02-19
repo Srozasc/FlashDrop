@@ -1,0 +1,82 @@
+
+> mobile@1.0.0 test
+> jest src/screens/driver/__tests__/FinanceScreen.test.tsx
+
+FAIL src/screens/driver/__tests__/FinanceScreen.test.tsx
+  FinanceScreen
+    ├ù debe renderizar el t├¡tulo de la secci├│n y el componente DriverWallet (32 ms)
+    ├ù debe mostrar un mensaje de confirmaci├│n al presionar "Retirar Ahora" (3 ms)
+
+  ÔùÅ FinanceScreen ÔÇ║ debe renderizar el t├¡tulo de la secci├│n y el componente DriverWallet
+
+    No safe area value available. Make sure you are rendering `<SafeAreaProvider>` at the top of your app.
+
+      17 | export default function FinanceScreen() {
+      18 |     const { isDark, colors } = useTheme();
+    > 19 |     const insets = useSafeAreaInsets();
+         |                                     ^
+      20 |
+      21 |     // Datos de ejemplo para la visualizaci├│n premium
+      22 |     const [balance] = useState<WalletBalance>({
+
+      at useSafeAreaInsets (node_modules/.pnpm/react-native-safe-area-cont_db7e84308fa9a28cdc0cc9a7b78f5e93/node_modules/react-native-safe-area-context/src/SafeAreaContext.tsx:152:11)
+      at FinanceScreen (src/screens/driver/FinanceScreen.tsx:19:37)
+      at Object.react-stack-bottom-frame (node_modules/.pnpm/react-test-renderer@19.1.0_react@19.1.0/node_modules/react-test-renderer/cjs/react-test-renderer.development.js:13976:20)
+      at renderWithHooks (node_modules/.pnpm/react-test-renderer@19.1.0_react@19.1.0/node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2866:22)
+      at updateFunctionComponent (node_modules/.pnpm/react-test-renderer@19.1.0_react@19.1.0/node_modules/react-test-renderer/cjs/react-test-renderer.development.js:6006:19)
+      at beginWork (node_modules/.pnpm/react-test-renderer@19.1.0_react@19.1.0/node_modules/react-test-renderer/cjs/react-test-renderer.development.js:7474:18)
+      at runWithFiberInDEV (node_modules/.pnpm/react-test-renderer@19.1.0_react@19.1.0/node_modules/react-test-renderer/cjs/react-test-renderer.development.js:1574:13)
+      at performUnitOfWork (node_modules/.pnpm/react-test-renderer@19.1.0_react@19.1.0/node_modules/react-test-renderer/cjs/react-test-renderer.development.js:10972:22)
+      at workLoopSync (node_modules/.pnpm/react-test-renderer@19.1.0_react@19.1.0/node_modules/react-test-renderer/cjs/react-test-renderer.development.js:10816:41)
+      at renderRootSync (node_modules/.pnpm/react-test-renderer@19.1.0_react@19.1.0/node_modules/react-test-renderer/cjs/react-test-renderer.development.js:10797:11)
+      at performWorkOnRoot (node_modules/.pnpm/react-test-renderer@19.1.0_react@19.1.0/node_modules/react-test-renderer/cjs/react-test-renderer.development.js:10384:39)
+      at performWorkOnRootViaSchedulerTask (node_modules/.pnpm/react-test-renderer@19.1.0_react@19.1.0/node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2094:7)
+      at flushActQueue (node_modules/.pnpm/react@19.1.0/node_modules/react/cjs/react.development.js:566:34)
+      at Object.<anonymous>.process.env.NODE_ENV.exports.act (node_modules/.pnpm/react@19.1.0/node_modules/react/cjs/react.development.js:859:10)
+      at actImplementation (node_modules/.pnpm/@testing-library+react-nati_d857b401ccf7ca28bc8b170249c32b80/node_modules/@testing-library/react-native/src/act.ts:30:25)
+      at renderWithAct (node_modules/.pnpm/@testing-library+react-nati_d857b401ccf7ca28bc8b170249c32b80/node_modules/@testing-library/react-native/src/render-act.ts:13:11)
+      at renderInternal (node_modules/.pnpm/@testing-library+react-nati_d857b401ccf7ca28bc8b170249c32b80/node_modules/@testing-library/react-native/src/render.tsx:69:33)
+      at renderInternal (node_modules/.pnpm/@testing-library+react-nati_d857b401ccf7ca28bc8b170249c32b80/node_modules/@testing-library/react-native/src/render.tsx:44:10)
+      at Object.<anonymous> (src/screens/driver/__tests__/FinanceScreen.test.tsx:19:37)
+
+  ÔùÅ FinanceScreen ÔÇ║ debe mostrar un mensaje de confirmaci├│n al presionar "Retirar Ahora"
+
+    No safe area value available. Make sure you are rendering `<SafeAreaProvider>` at the top of your app.
+
+      17 | export default function FinanceScreen() {
+      18 |     const { isDark, colors } = useTheme();
+    > 19 |     const insets = useSafeAreaInsets();
+         |                                     ^
+      20 |
+      21 |     // Datos de ejemplo para la visualizaci├│n premium
+      22 |     const [balance] = useState<WalletBalance>({
+
+      at useSafeAreaInsets (node_modules/.pnpm/react-native-safe-area-cont_db7e84308fa9a28cdc0cc9a7b78f5e93/node_modules/react-native-safe-area-context/src/SafeAreaContext.tsx:152:11)
+      at FinanceScreen (src/screens/driver/FinanceScreen.tsx:19:37)
+      at Object.react-stack-bottom-frame (node_modules/.pnpm/react-test-renderer@19.1.0_react@19.1.0/node_modules/react-test-renderer/cjs/react-test-renderer.development.js:13976:20)
+      at renderWithHooks (node_modules/.pnpm/react-test-renderer@19.1.0_react@19.1.0/node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2866:22)
+      at updateFunctionComponent (node_modules/.pnpm/react-test-renderer@19.1.0_react@19.1.0/node_modules/react-test-renderer/cjs/react-test-renderer.development.js:6006:19)
+      at beginWork (node_modules/.pnpm/react-test-renderer@19.1.0_react@19.1.0/node_modules/react-test-renderer/cjs/react-test-renderer.development.js:7474:18)
+      at runWithFiberInDEV (node_modules/.pnpm/react-test-renderer@19.1.0_react@19.1.0/node_modules/react-test-renderer/cjs/react-test-renderer.development.js:1574:13)
+      at performUnitOfWork (node_modules/.pnpm/react-test-renderer@19.1.0_react@19.1.0/node_modules/react-test-renderer/cjs/react-test-renderer.development.js:10972:22)
+      at workLoopSync (node_modules/.pnpm/react-test-renderer@19.1.0_react@19.1.0/node_modules/react-test-renderer/cjs/react-test-renderer.development.js:10816:41)
+      at renderRootSync (node_modules/.pnpm/react-test-renderer@19.1.0_react@19.1.0/node_modules/react-test-renderer/cjs/react-test-renderer.development.js:10797:11)
+      at performWorkOnRoot (node_modules/.pnpm/react-test-renderer@19.1.0_react@19.1.0/node_modules/react-test-renderer/cjs/react-test-renderer.development.js:10384:39)
+      at performWorkOnRootViaSchedulerTask (node_modules/.pnpm/react-test-renderer@19.1.0_react@19.1.0/node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2094:7)
+      at flushActQueue (node_modules/.pnpm/react@19.1.0/node_modules/react/cjs/react.development.js:566:34)
+      at Object.<anonymous>.process.env.NODE_ENV.exports.act (node_modules/.pnpm/react@19.1.0/node_modules/react/cjs/react.development.js:859:10)
+      at actImplementation (node_modules/.pnpm/@testing-library+react-nati_d857b401ccf7ca28bc8b170249c32b80/node_modules/@testing-library/react-native/src/act.ts:30:25)
+      at renderWithAct (node_modules/.pnpm/@testing-library+react-nati_d857b401ccf7ca28bc8b170249c32b80/node_modules/@testing-library/react-native/src/render-act.ts:13:11)
+      at renderInternal (node_modules/.pnpm/@testing-library+react-nati_d857b401ccf7ca28bc8b170249c32b80/node_modules/@testing-library/react-native/src/render.tsx:69:33)
+      at renderInternal (node_modules/.pnpm/@testing-library+react-nati_d857b401ccf7ca28bc8b170249c32b80/node_modules/@testing-library/react-native/src/render.tsx:44:10)
+      at Object.<anonymous> (src/screens/driver/__tests__/FinanceScreen.test.tsx:25:37)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:22:7
+      at Object.<anonymous> (node_modules/@babel/runtime/helpers/asyncToGenerator.js:14:12)
+
+Test Suites: 1 failed, 1 total
+Tests:       2 failed, 2 total
+Snapshots:   0 total
+Time:        3.703 s, estimated 7 s
+Ran all test suites matching /src\\screens\\driver\\__tests__\\FinanceScreen.test.tsx/i.

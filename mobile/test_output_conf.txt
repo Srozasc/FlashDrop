@@ -1,0 +1,43 @@
+
+> mobile@1.0.0 test
+> jest src/components/driver/__tests__/DeliveryConfirmation.test.tsx
+
+FAIL src/components/driver/__tests__/DeliveryConfirmation.test.tsx
+  DeliveryConfirmation
+    ÔêÜ debe mostrar el campo de PIN cuando el m├®todo es "pin" (260 ms)
+    ├ù debe llamar a onConfirm con el PIN ingresado (78 ms)
+    ├ù debe deshabilitar el bot├│n si el PIN est├í incompleto (16 ms)
+
+  ÔùÅ DeliveryConfirmation ÔÇ║ debe llamar a onConfirm con el PIN ingresado
+
+    Found multiple elements with text: Confirmar Entrega
+
+      32 |
+      33 |         fireEvent.changeText(getByPlaceholderText('Ingresa el PIN del cliente'), '4321');
+    > 34 |         fireEvent.press(getByText('Confirmar Entrega'));
+         |                         ^
+      35 |
+      36 |         expect(mockOnConfirm).toHaveBeenCalledWith({
+      37 |             orderId: '123',
+
+      at Object.getByText (src/components/driver/__tests__/DeliveryConfirmation.test.tsx:34:25)
+
+  ÔùÅ DeliveryConfirmation ÔÇ║ debe deshabilitar el bot├│n si el PIN est├í incompleto
+
+    Found multiple elements with text: Confirmar Entrega
+
+      54 |         // Dependiendo de la implementaci├│n, el bot├│n podr├¡a estar deshabilitado o mostrar error.
+      55 |         // Aqu├¡ verificamos que NO se haya llamado al presionar si es inv├ílido.
+    > 56 |         fireEvent.press(getByText('Confirmar Entrega'));
+         |                         ^
+      57 |         expect(mockOnConfirm).not.toHaveBeenCalled();
+      58 |     });
+      59 | });
+
+      at Object.getByText (src/components/driver/__tests__/DeliveryConfirmation.test.tsx:56:25)
+
+Test Suites: 1 failed, 1 total
+Tests:       2 failed, 1 passed, 3 total
+Snapshots:   0 total
+Time:        3.069 s, estimated 8 s
+Ran all test suites matching /src\\components\\driver\\__tests__\\DeliveryConfirmation.test.tsx/i.
